@@ -61,9 +61,9 @@
 
   /* HERO */
   .hero {
-    min-height:90vh; display:flex; flex-direction:column;
+    min-height:100vh; display:flex; flex-direction:column;
     align-items:center; justify-content:center;
-    padding:80px 40px 70px; text-align:center;
+    padding:20px 40px 20px; text-align:center;
     background:var(--cream); position:relative; overflow:hidden;
   }
   .hero::before {
@@ -84,12 +84,12 @@
     letter-spacing:2px; text-transform:uppercase;
     padding:5px 18px; border-radius:100px;
     border:1.5px solid rgba(0,0,0,0.1); box-shadow:2px 2px 0 rgba(0,0,0,0.08);
-    margin-bottom:26px; animation:fadeUp .5s ease both;
+    margin-bottom:12px; animation:fadeUp .5s ease both;
   }
   .hero h1 {
     position:relative; z-index:1;
     font-family:'Baloo 2',cursive; font-weight:900;
-    font-size:clamp(40px,6.5vw,82px); line-height:1.08; max-width:860px;
+    font-size:clamp(30px,4.5vw,58px); line-height:1.08; max-width:860px;
     animation:fadeUp .6s .1s ease both;
   }
   .hero h1 .hl { color:var(--red); position:relative; display:inline-block; }
@@ -99,33 +99,34 @@
   }
   .hero-sub {
     position:relative; z-index:1;
-    font-size:19px; font-weight:600; color:rgba(28,28,28,0.5);
-    max-width:500px; line-height:1.65; margin-top:18px;
+    font-size:16px; font-weight:600; color:rgba(28,28,28,0.5);
+    max-width:500px; line-height:1.5; margin-top:10px;
     animation:fadeUp .6s .2s ease both;
   }
 
   /* HERO IMAGE */
   .hero-board {
     position:relative; z-index:1;
-    width:100%; max-width:860px; margin-top:52px;
+    width:100%; max-width:700px; margin-top:16px;
     animation:fadeUp .7s .3s ease both;
   }
   .board-label {
     font-size:10px; font-weight:900; letter-spacing:2px;
-    text-transform:uppercase; color:rgba(0,0,0,0.25); margin-bottom:10px;
+    text-transform:uppercase; color:rgba(0,0,0,0.25); margin-bottom:8px;
   }
   .hero-img-wrap {
-    border-radius:16px; overflow:hidden;
+    border-radius:12px; overflow:hidden;
     box-shadow:0 8px 50px rgba(0,0,0,0.15), 6px 6px 0 rgba(0,0,0,0.1);
     border:3px solid rgba(0,0,0,0.08);
+    max-height:38vh;
   }
-  .hero-img-wrap img { width:100%; height:auto; display:block; }
+  .hero-img-wrap img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
 
   /* HERO CTA */
   .hero-cta {
     position:relative; z-index:1;
     display:flex; gap:14px; align-items:center;
-    flex-wrap:wrap; justify-content:center; margin-top:44px;
+    flex-wrap:wrap; justify-content:center; margin-top:18px;
     animation:fadeUp .7s .5s ease both;
   }
   .btn-primary {
