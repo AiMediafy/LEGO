@@ -19,8 +19,6 @@
     }
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
     body { font-family:'Nunito',sans-serif; background:var(--cream); color:var(--dark); }
-
-    /* NAV */
     nav {
       position:sticky; top:0; z-index:100;
       background:rgba(255,251,242,0.93); backdrop-filter:blur(12px);
@@ -51,10 +49,7 @@
       padding:7px 18px; transition:all .2s;
     }
     .back-btn:hover { color:var(--red); border-color:var(--red); }
-
-    /* CONTENT */
     .container { max-width:760px; margin:0 auto; padding:60px 32px 80px; }
-
     .page-eyebrow {
       font-size:11px; font-weight:900; letter-spacing:2.5px;
       text-transform:uppercase; color:var(--red); margin-bottom:10px;
@@ -64,17 +59,11 @@
       font-size:clamp(28px,4vw,46px); line-height:1.1;
       color:var(--dark); margin-bottom:6px;
     }
-    .updated {
-      font-size:12px; font-weight:600; color:rgba(28,28,28,0.35);
-      margin-bottom:36px;
-    }
-
-    /* COLORBAR */
+    .updated { font-size:12px; font-weight:600; color:rgba(28,28,28,0.35); margin-bottom:36px; }
     .colorbar {
       height:5px; border-radius:100px; margin-bottom:36px;
       background:linear-gradient(90deg,var(--red),var(--yellow),var(--blue),var(--green));
     }
-
     .highlight-box {
       background:white; border-radius:14px;
       border:1.5px solid rgba(0,0,0,0.07);
@@ -82,10 +71,7 @@
       padding:22px 28px; margin-bottom:40px;
       border-left:4px solid var(--yellow);
     }
-    .highlight-box p {
-      font-size:15px; font-weight:700; color:var(--dark); line-height:1.6;
-    }
-
+    .highlight-box p { font-size:15px; font-weight:700; color:var(--dark); line-height:1.6; }
     h2 {
       font-family:'Baloo 2',cursive; font-weight:800; font-size:20px;
       color:var(--dark); margin:40px 0 12px;
@@ -96,8 +82,6 @@
     ul li { font-size:14px; font-weight:600; color:rgba(28,28,28,0.6); line-height:1.8; margin-bottom:4px; }
     strong { color:var(--dark); font-weight:800; }
     .eml { color:var(--red); font-weight:700; }
-
-    /* FOOTER */
     footer {
       background:var(--dark); padding:28px 60px;
       display:flex; align-items:center; justify-content:space-between;
@@ -108,7 +92,6 @@
     footer a { color:rgba(255,255,255,0.55); text-decoration:underline; text-underline-offset:3px; }
     .foot-dots { display:flex; gap:6px; }
     .fd { width:12px; height:12px; border-radius:50%; opacity:.4; }
-
     @media(max-width:600px) {
       nav { padding:0 20px; }
       .container { padding:40px 20px 60px; }
@@ -138,9 +121,8 @@
 
   <h2>1. Administrator danych osobowych</h2>
   <p>Administratorem Twoich danych osobowych jest:</p>
-  <p><strong>Mediafy</strong><br>
-  Strona: <a href="https://www.mediafy.com.pl/" target="_blank" style="color:var(--red)">www.mediafy.com.pl</a><br>
-  E-mail kontaktowy: <span class="eml">kontakt@mediafy.com.pl</span></p>
+  <p><strong>Jerzy Niewiadowski</strong><br>
+  E-mail kontaktowy: <span class="eml" id="eml1"></span></p>
   <p>W sprawach dotyczących ochrony danych osobowych możesz kontaktować się z nami pod powyższym adresem e-mail.</p>
 
   <h2>2. Jakie dane zbieramy</h2>
@@ -161,8 +143,8 @@
   <p>Podstawą prawną przetwarzania jest <strong>Twoja dobrowolna zgoda</strong> (art. 6 ust. 1 lit. a RODO).</p>
 
   <h2>4. Gdzie przechowujemy Twoje dane</h2>
-  <p>Dane (e-mail, imię, link LinkedIn) są zapisywane w <strong>Google Sheets</strong>, dostępnym wyłącznie dla administratora. Infrastruktura Google spełnia wymogi RODO. Dane nie są przekazywane poza Europejski Obszar Gospodarczy.</p>
-  <p>Do generowania grafiki wykorzystujemy API Google Gemini. Do wysyłki e-maili korzystamy z automatyzacji opartej na narzędziu n8n.</p>
+  <p>Dane zgłoszenia (e-mail, imię, link LinkedIn) są zapisywane w bezpiecznej bazie danych dostępnej wyłącznie dla administratora, spełniającej wymogi RODO. Dane nie są przekazywane poza Europejski Obszar Gospodarczy.</p>
+  <p>Grafika generowana jest przez AI. Wysyłka e-maila również realizowana jest automatycznie przez AI.</p>
 
   <h2>5. Jak długo przechowujemy Twoje dane</h2>
   <p>Twój e-mail i dane zgłoszenia przechowywane są przez czas niezbędny do obsługi zamówienia, a następnie oznaczane jako zrealizowane. Jeśli chcesz, aby Twoje dane zostały trwale usunięte, napisz do nas bezpośrednio.</p>
@@ -175,10 +157,10 @@
     <li><strong>Prawo do usunięcia</strong> — możesz poprosić o usunięcie swoich danych w każdej chwili</li>
     <li><strong>Prawo do wycofania zgody</strong> — możesz wycofać zgodę w dowolnym momencie bez podawania przyczyny</li>
   </ul>
-  <p>Aby skorzystać z tych praw, napisz na: <span class="eml">kontakt@mediafy.com.pl</span></p>
+  <p>Aby skorzystać z tych praw, napisz na: <span class="eml" id="eml2"></span></p>
 
   <h2>7. Udostępnianie danych trzecim stronom</h2>
-  <p>Nie sprzedajemy ani nie udostępniamy Twoich danych osobowych żadnym podmiotom trzecim w celach marketingowych. Dane są przetwarzane wyłącznie przez narzędzia techniczne niezbędne do realizacji usługi (Google Sheets, Google Gemini API, n8n).</p>
+  <p>Nie sprzedajemy ani nie udostępniamy Twoich danych osobowych żadnym podmiotom trzecim.</p>
 
   <h2>8. Pliki cookies</h2>
   <p>Serwis LiGo Career nie używa własnych plików cookies do śledzenia użytkowników. Strona hostowana jest na GitHub Pages, który może zbierać standardowe dane techniczne (adres IP, typ przeglądarki) zgodnie z własną polityką prywatności.</p>
@@ -188,8 +170,7 @@
 
   <h2>10. Kontakt</h2>
   <p>W razie pytań dotyczących prywatności napisz do nas:<br>
-  <span class="eml">kontakt@mediafy.com.pl</span><br>
-  lub odwiedź: <a href="https://www.mediafy.com.pl/" target="_blank" style="color:var(--red)">www.mediafy.com.pl</a></p>
+  <span class="eml" id="eml3"></span></p>
 </div>
 
 <footer>
@@ -201,6 +182,13 @@
     <div class="fd" style="background:var(--green)"></div>
   </div>
 </footer>
+
+<script>
+  const e = ['tvai.online.auto.jez', 'gmail.com'].join('@');
+  document.getElementById('eml1').textContent = e;
+  document.getElementById('eml2').textContent = e;
+  document.getElementById('eml3').textContent = e;
+</script>
 
 </body>
 </html>
