@@ -12,8 +12,6 @@
     --yellow: #F5C400;
     --blue:   #006CB7;
     --green:  #007A3E;
-    --orange: #E3721A;
-    --purple: #7B2FBE;
     --cream:  #FFFBF2;
     --light:  #F4F0E6;
     --dark:   #1C1C1C;
@@ -47,11 +45,14 @@
     border-radius:50% 50% 0 0; border:1.5px solid rgba(0,0,0,0.18);
   }
   .nav-links { display:flex; gap:28px; list-style:none; }
-  .nav-links a { font-size:14px; font-weight:700; color:var(--mid); text-decoration:none; transition:color .2s; }
+  .nav-links a {
+    font-size:14px; font-weight:700; color:var(--mid);
+    text-decoration:none; cursor:pointer; transition:color .2s;
+  }
   .nav-links a:hover { color:var(--red); }
   .nav-cta {
     font-family:'Montserrat',sans-serif; font-weight:800; font-size:14px;
-    background:var(--red); color:white;
+    background:var(--red); color:white; cursor:pointer;
     padding:9px 22px; border-radius:7px;
     border:2px solid rgba(0,0,0,0.15); box-shadow:3px 3px 0 rgba(0,0,0,0.15);
     text-decoration:none; transition:transform .12s, box-shadow .12s;
@@ -63,7 +64,7 @@
   .hero {
     min-height:100vh; display:flex; flex-direction:column;
     align-items:center; justify-content:center;
-    padding:20px 40px 20px; text-align:center;
+    padding:20px 40px; text-align:center;
     background:var(--cream); position:relative; overflow:hidden;
   }
   .hero::before {
@@ -100,14 +101,12 @@
   .hero-sub {
     position:relative; z-index:1;
     font-size:16px; font-weight:600; color:rgba(28,28,28,0.5);
-    max-width:500px; line-height:1.5; margin-top:10px;
+    max-width:520px; line-height:1.6; margin-top:28px;
     animation:fadeUp .6s .2s ease both;
   }
-
-  /* HERO IMAGE */
   .hero-board {
     position:relative; z-index:1;
-    width:100%; max-width:700px; margin-top:16px;
+    width:100%; max-width:700px; margin-top:20px;
     animation:fadeUp .7s .3s ease both;
   }
   .board-label {
@@ -117,21 +116,18 @@
   .hero-img-wrap {
     border-radius:12px; overflow:hidden;
     box-shadow:0 8px 50px rgba(0,0,0,0.15), 6px 6px 0 rgba(0,0,0,0.1);
-    border:3px solid rgba(0,0,0,0.08);
-    max-height:38vh;
+    border:3px solid rgba(0,0,0,0.08); max-height:38vh;
   }
   .hero-img-wrap img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
-
-  /* HERO CTA */
   .hero-cta {
     position:relative; z-index:1;
     display:flex; gap:14px; align-items:center;
-    flex-wrap:wrap; justify-content:center; margin-top:18px;
+    flex-wrap:wrap; justify-content:center; margin-top:20px;
     animation:fadeUp .7s .5s ease both;
   }
   .btn-primary {
     font-family:'Montserrat',sans-serif; font-weight:800; font-size:18px;
-    background:var(--red); color:white;
+    background:var(--red); color:white; cursor:pointer;
     padding:15px 40px; border-radius:8px;
     border:2px solid rgba(0,0,0,0.18); box-shadow:4px 4px 0 rgba(0,0,0,0.15);
     text-decoration:none; display:inline-flex; align-items:center; gap:8px;
@@ -188,8 +184,7 @@
   .example .section-h{color:white}
   .example .section-sub{color:rgba(255,255,255,0.35)}
   .ex-img-wrap {
-    max-width:940px; margin:0 auto;
-    border-radius:18px; overflow:hidden;
+    max-width:940px; margin:0 auto; border-radius:18px; overflow:hidden;
     box-shadow:0 0 60px rgba(0,0,0,0.4), 8px 8px 0 rgba(0,0,0,0.22);
     border:3px solid rgba(255,255,255,0.08);
   }
@@ -266,12 +261,84 @@
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
   .reveal.visible{opacity:1;transform:none}
 
-  /* RESPONSIVE */
+  /* ── FISZKA LINKEDIN – styl klockowy ── */
+  #li-card {
+    position:fixed; bottom:28px; left:28px; width:290px;
+    background:var(--cream);
+    border:2px solid rgba(0,0,0,0.1);
+    border-radius:14px;
+    box-shadow:5px 5px 0 rgba(0,0,0,0.13), 0 16px 50px rgba(0,0,0,0.12);
+    z-index:999; overflow:hidden;
+    transform:translateY(160px); opacity:0;
+    transition:transform .45s cubic-bezier(.22,.68,0,1.2), opacity .35s ease;
+    pointer-events:none;
+  }
+  #li-card.visible  { transform:translateY(0); opacity:1; pointer-events:all; }
+  #li-card.hiding   { transform:translateY(160px); opacity:0; pointer-events:none; }
+
+  .li-topbar {
+    height:5px;
+    background:linear-gradient(90deg,var(--red),var(--yellow),var(--blue),var(--green));
+  }
+  #li-close {
+    position:absolute; top:10px; right:10px;
+    width:24px; height:24px;
+    background:rgba(0,0,0,0.07); border:none; border-radius:50%;
+    color:var(--dark); font-size:10px; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:background .2s; z-index:2;
+  }
+  #li-close:hover { background:rgba(0,0,0,0.15); }
+
+  .li-banner {
+    height:72px;
+    background:linear-gradient(135deg,var(--red) 0%,#8B0010 100%);
+    overflow:hidden;
+  }
+  .li-banner img { width:100%; height:100%; object-fit:cover; display:block; }
+
+  .li-body { padding:0 16px 18px; display:flex; flex-direction:column; gap:6px; }
+  .li-avatar-wrap { margin-top:-22px; position:relative; z-index:1; }
+  .li-avatar {
+    width:50px; height:50px; border-radius:8px;
+    border:3px solid var(--cream);
+    box-shadow:3px 3px 0 rgba(0,0,0,0.12);
+    object-fit:cover; display:block; background:var(--light);
+  }
+  .li-name     { font-family:'Montserrat',sans-serif; font-size:0.9rem; font-weight:800; color:var(--dark); line-height:1.2; }
+  .li-title    { font-size:0.72rem; font-weight:700; color:var(--red); margin-top:-2px; }
+  .li-sub      { font-size:0.7rem; font-weight:600; color:rgba(28,28,28,0.5); line-height:1.5; }
+  .li-location { font-size:0.65rem; font-weight:700; color:rgba(28,28,28,0.35); }
+  .li-btn {
+    display:block; text-align:center;
+    background:var(--blue); color:#fff;
+    font-family:'Montserrat',sans-serif; font-size:0.75rem; font-weight:800;
+    padding:9px 16px; border-radius:7px;
+    border:2px solid rgba(0,0,0,0.12); box-shadow:3px 3px 0 rgba(0,0,0,0.1);
+    text-decoration:none; margin-top:8px;
+    transition:transform .12s, box-shadow .12s;
+  }
+  .li-btn:hover { transform:translate(-1px,-1px); box-shadow:4px 4px 0 rgba(0,0,0,0.1); }
+  .li-btn:active { transform:translate(1px,1px); box-shadow:1px 1px 0 rgba(0,0,0,0.1); }
+
+  #li-tab-avatar {
+    position:fixed; bottom:28px; left:28px;
+    width:44px; height:44px; border-radius:8px;
+    border:3px solid var(--red);
+    box-shadow:3px 3px 0 rgba(0,0,0,0.15);
+    object-fit:cover; cursor:pointer; z-index:1002;
+    display:none;
+    transition:transform .15s;
+  }
+  #li-tab-avatar:hover { transform:translate(-2px,-2px); }
+
   @media(max-width:768px){
     nav{padding:0 20px} .nav-links{display:none}
     .hero{padding:60px 20px 50px}
     .how,.example,.form-wrap{padding:80px 20px}
     .form-box{padding:36px 22px}
+    #li-card{width:260px; left:12px; bottom:12px;}
+    #li-tab-avatar{left:12px; bottom:12px;}
   }
 </style>
 </head>
@@ -283,98 +350,98 @@
     LiGo Career
   </a>
   <ul class="nav-links">
-    <li><a href="#how">Jak to dziala</a></li>
-    <li><a href="#example">Przyklad</a></li>
-    <li><a href="#start">Cennik</a></li>
+    <li><a onclick="smoothScroll('how')">Jak to działa</a></li>
+    <li><a onclick="smoothScroll('example')">Przykład</a></li>
+    <li><a onclick="smoothScroll('start')">Formularz</a></li>
   </ul>
-  <a href="#start" class="nav-cta">Zbuduj Swoja</a>
+  <a onclick="smoothScroll('start')" class="nav-cta">Zbuduj Swoją</a>
 </nav>
 
 <section class="hero">
-  <span class="hero-badge">LinkedIn x Klocki x AI</span>
+  <span class="hero-badge">Doświadczenie x LinkedIn x AI</span>
 
-  <h1>Zamień swoje LinkedIn<br>w <span class="hl">Mapę Kariery z Klocków</span></h1>
+  <h1>Zobacz swoje Doświadczenie<br>Zawodowe w <span class="hl">Stylu Klocków</span></h1>
 
   <p class="hero-sub">
-    Wklej link do LinkedIn. AI wygeneruje unikalna mape Twojej kariery — kazde stanowisko to budynek dopasowany do Twojej pracy, gotowa do pochwalenia sie!
+    Wypełnij potrzebne dane i odbierz unikalną grafikę Twojej kariery zawodowej jako mapę w stylu klocków.
   </p>
 
   <div class="hero-board reveal">
-    <p class="board-label">Podglad - przykladowa mapa kariery</p>
+    <p class="board-label">Podgląd — przykładowa mapa kariery</p>
     <div class="hero-img-wrap">
-      <img src="lego1.png" alt="Przykladowa mapa kariery w stylu klockowym">
+      <img src="lego1.png" alt="Przykładowa mapa kariery w stylu klockowym">
     </div>
   </div>
 
   <div class="hero-cta">
-    <a href="#start" class="btn-primary">&#129522; Zbuduj Moja Mape</a>
-    <span class="spots-pill">Pierwsze 10 za darmo</span>
+    <a onclick="smoothScroll('start')" class="btn-primary">🧱 Zbuduj Swoją Mapę</a>
+    <span class="spots-pill">Zostało jeszcze 99 miejsc</span>
   </div>
 </section>
 
 <section class="how" id="how">
   <span class="section-eyebrow reveal">Proces</span>
-  <h2 class="section-h reveal">Jak to dziala?</h2>
-  <p class="section-sub reveal">Trzy proste kroki do swojej mapy w stylu klockow</p>
+  <h2 class="section-h reveal">Jak to działa?</h2>
+  <p class="section-sub reveal">Trzy proste kroki do swojej mapy w stylu klocków</p>
   <div class="steps">
     <div class="step reveal">
       <div class="step-n">1</div>
-      <span class="step-icon">&#128279;</span>
+      <span class="step-icon">🔗</span>
       <div class="step-title">Skopiuj link</div>
-      <p class="step-desc">Skopiuj URL swojego profilu LinkedIn z paska adresu przegladarki</p>
+      <p class="step-desc">Skopiuj URL swojego profilu LinkedIn z paska adresu przeglądarki</p>
     </div>
     <div class="step reveal">
       <div class="step-n">2</div>
-      <span class="step-icon">&#128203;</span>
-      <div class="step-title">Wklej i wyslij</div>
-      <p class="step-desc">Wklej link i podaj swoj email. Reszta zajmuje sie AI - bez rejestracji</p>
+      <span class="step-icon">📋</span>
+      <div class="step-title">Wklej i wyślij</div>
+      <p class="step-desc">Wklej link i wypełnij potrzebne dane, reszta zajmuje się automatyzacja AI bez rejestracji i udziału człowieka</p>
     </div>
     <div class="step reveal">
       <div class="step-n">3</div>
-      <span class="step-icon">&#128236;</span>
-      <div class="step-title">Odbierz mape</div>
-      <p class="step-desc">Dostaniesz swoj unikalny obraz kariery jako plansze w stylu klockow gotowa do udostepnienia</p>
+      <span class="step-icon">📬</span>
+      <div class="step-title">Odbierz mapę</div>
+      <p class="step-desc">Dostaniesz swój unikalny obraz kariery jako planszę w stylu klocków gotową do udostępnienia</p>
     </div>
   </div>
 </section>
 
 <section class="example" id="example">
-  <span class="section-eyebrow reveal">Przyklad</span>
-  <h2 class="section-h reveal">Zobacz efekt koncowy</h2>
-  <p class="section-sub reveal">Kazde stanowisko to budynek odzwierciedlajacy Twoja prace. Kazda firma — dopasowana architektura.</p>
+  <span class="section-eyebrow reveal">Przykład</span>
+  <h2 class="section-h reveal">Zobacz efekt końcowy</h2>
+  <p class="section-sub reveal">Każde stanowisko to budynek odzwierciedlający Twoją pracę. Każda firma — dopasowana architektura.</p>
   <div class="ex-img-wrap reveal">
-    <img src="lego2.png" alt="Przyklad mapy kariery w stylu klockowym">
+    <img src="lego2.png" alt="Przykład mapy kariery w stylu klockowym">
   </div>
 </section>
 
 <section class="form-wrap" id="start">
   <div class="form-box reveal">
     <div class="form-colorbar"></div>
-    <h2 class="form-h">Zbuduj Swoja!</h2>
-    <p class="form-sub">Dostaniesz unikalna mape kariery w stylu klockow &mdash; na email, gotowa do udostepnienia i pochwalenia sie na LinkedIn, ze juz Ty to masz!</p>
-    <div class="spots-bar">&#129522; Zostalo <strong id="spotsCount">7</strong> darmowych miejsc!</div>
+    <h2 class="form-h">Zbuduj Swoją!</h2>
+    <p class="form-sub">Dostaniesz unikalną mapę kariery w stylu klocków — na email, gotową do udostępnienia i pochwalenia się na LinkedIn!</p>
+    <div class="spots-bar">🧱 Zostało <strong id="spotsCount">97</strong> miejsc!</div>
     <div id="formContent">
       <form id="qForm" onsubmit="handleSubmit(event)">
         <label for="email">Email *</label>
         <input type="email" id="email" placeholder="budowniczy@example.com" required>
-        <label for="name">Imie (opcjonalne)</label>
-        <input type="text" id="name" placeholder="Twoje imie">
+        <label for="name">Imię (opcjonalne)</label>
+        <input type="text" id="name" placeholder="Twoje imię">
         <label for="linkedin">LinkedIn Profile URL *</label>
         <input type="url" id="linkedin" placeholder="https://linkedin.com/in/twojenazwisko" required>
-        <button type="submit" class="submit-btn" id="submitBtn">&#129522; Zbuduj Moja Mape Kariery</button>
+        <button type="submit" class="submit-btn" id="submitBtn">🧱 Zbuduj Swoją Mapę Kariery</button>
       </form>
-      <p class="form-note">&#128274; Twoje dane sa bezpieczne. Nie udostepniamy ich nikomu.</p>
+      <p class="form-note">🔒 Twoje dane są bezpieczne. Nie udostępniamy ich nikomu.</p>
     </div>
     <div class="success-msg" id="successMsg">
-      <div class="big">&#129522;&#10024;</div>
-      <h3>Budujemy Twoj Swiat!</h3>
-      <p>Sprawdz skrzynke email &mdash; wyslemy Ci Twoja unikalna mape kariery z klockow!</p>
+      <div class="big">🧱✨</div>
+      <h3>Budujemy Twój Świat!</h3>
+      <p>Sprawdź skrzynkę email — wyślemy Ci Twoją unikalną mapę kariery z klocków!</p>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>Made with &#129522; by <strong>LiGo Career</strong> &nbsp;&middot;&nbsp; Produkt firmy <a href="https://www.mediafy.com.pl/" target="_blank" style="color:rgba(255,255,255,0.55);text-decoration:underline;text-underline-offset:3px">Mediafy</a> &nbsp;&middot;&nbsp; <a href="privacy.html" style="color:rgba(255,255,255,0.35);text-decoration:underline;text-underline-offset:3px">Polityka Prywatnosci</a> &nbsp;&middot;&nbsp; Nie jestesmy powiazani z The LEGO Group&reg;</p>
+  <p>Made with 🧱 by <strong>LiGo Career</strong> &nbsp;&middot;&nbsp; Produkt firmy <a href="https://www.mediafy.com.pl/" target="_blank" style="color:rgba(255,255,255,0.55);text-decoration:underline;text-underline-offset:3px">Mediafy</a> &nbsp;&middot;&nbsp; <a href="privacy.html" style="color:rgba(255,255,255,0.35);text-decoration:underline;text-underline-offset:3px">Polityka Prywatności</a> &nbsp;&middot;&nbsp; Nie jesteśmy powiązani z The LEGO Group&reg;</p>
   <div class="foot-dots">
     <div class="fd" style="background:var(--red)"></div>
     <div class="fd" style="background:var(--yellow)"></div>
@@ -383,7 +450,41 @@
   </div>
 </footer>
 
+<!-- ── FISZKA LINKEDIN ── -->
+<div id="li-card">
+  <div class="li-topbar"></div>
+  <button id="li-close">✕</button>
+  <div class="li-banner">
+    <img src="https://aimediafy.github.io/mediafy-chatbot/BanerLinkedIn.png" alt="" onerror="this.style.display='none'"/>
+  </div>
+  <div class="li-body">
+    <div class="li-avatar-wrap">
+      <img class="li-avatar"
+           src="https://aimediafy.github.io/mediafy-chatbot/ProfiloweLinkedIn.png"
+           alt="Jerzy Niewiadowski"
+           onerror="this.src='https://ui-avatars.com/api/?name=Jerzy+Niewiadowski&background=C4001A&color=fff&size=80'"/>
+    </div>
+    <div class="li-name">Jerzy Niewiadowski</div>
+    <div class="li-title">Co-Founder Mediafy</div>
+    <div class="li-sub">Wdrażamy Automatyzacje i Szkolenia AI dla Liderów Rynku</div>
+    <div class="li-location">📍 Poznań, Polska</div>
+    <a class="li-btn" href="https://www.linkedin.com/in/jerzy-mediafy/" target="_blank">Obserwuj na LinkedIn</a>
+  </div>
+</div>
+
+<img id="li-tab-avatar"
+     src="https://aimediafy.github.io/mediafy-chatbot/ProfiloweLinkedIn.png"
+     alt="Jerzy"
+     onerror="this.src='https://ui-avatars.com/api/?name=Jerzy&background=C4001A&color=fff&size=44'"/>
+
 <script>
+  /* płynne przewijanie */
+  function smoothScroll(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  /* reveal on scroll */
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 70);
@@ -391,33 +492,49 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
+  /* formularz */
   async function handleSubmit(e) {
     e.preventDefault();
     const btn = document.getElementById('submitBtn');
     btn.textContent = 'Budujemy...';
     btn.disabled = true;
-
     const data = {
       email:    document.getElementById('email').value,
       name:     document.getElementById('name').value,
       linkedin: document.getElementById('linkedin').value
     };
-
-    const WEBHOOK = 'https://mediafy-sparta.app.n8n.cloud/webhook/brickcareer';
-
     try {
-      await fetch(WEBHOOK, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+      await fetch('https://mediafy-sparta.app.n8n.cloud/webhook/brickcareer', {
+        method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)
       });
     } catch(err) { console.warn('Webhook:', err); }
-
     document.getElementById('formContent').style.display = 'none';
     document.getElementById('successMsg').style.display = 'block';
     const sp = document.getElementById('spotsCount');
     if (sp) sp.textContent = Math.max(0, parseInt(sp.textContent) - 1);
   }
+
+  /* fiszka LinkedIn */
+  const liCard   = document.getElementById('li-card');
+  const liClose  = document.getElementById('li-close');
+  const liAvatar = document.getElementById('li-tab-avatar');
+
+  function hideCard() {
+    liCard.classList.remove('visible');
+    liCard.classList.add('hiding');
+    setTimeout(() => { liAvatar.style.display = 'block'; }, 500);
+  }
+  function showCard() {
+    liAvatar.style.display = 'none';
+    liCard.classList.remove('hiding');
+    liCard.classList.add('visible');
+  }
+
+  liAvatar.addEventListener('click', showCard);
+  liClose.addEventListener('click', hideCard);
+
+  /* automatycznie pokaż kartę po 2 sekundach */
+  setTimeout(showCard, 2000);
 </script>
 </body>
 </html>
