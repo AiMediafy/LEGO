@@ -472,6 +472,12 @@
         <input type="text" id="name" placeholder="Twoje imię" required>
         <label for="linkedin">LinkedIn Profile URL *</label>
         <input type="url" id="linkedin" placeholder="https://linkedin.com/in/twojenazwisko" required>
+        <div style="display:flex;align-items:flex-start;gap:10px;margin-top:20px">
+          <input type="checkbox" id="privacyConsent" required style="margin-top:3px;width:16px;height:16px;accent-color:var(--red);flex-shrink:0;cursor:pointer">
+          <label for="privacyConsent" style="font-size:12px;font-weight:600;color:rgba(28,28,28,0.5);text-transform:none;letter-spacing:0;line-height:1.5;cursor:pointer">
+            Akceptuję <a href="privacy.html" target="_blank" style="color:var(--red);text-decoration:underline">Politykę Prywatności</a> i wyrażam zgodę na przetwarzanie moich danych osobowych w celu wygenerowania mapy kariery. *
+          </label>
+        </div>
         <button type="submit" class="submit-btn" id="submitBtn">🧱 Zbuduj Swoją Mapę Kariery</button>
       </form>
       <p class="form-note">🔒 Twoje dane są bezpieczne. Nie udostępniamy ich nikomu.</p>
